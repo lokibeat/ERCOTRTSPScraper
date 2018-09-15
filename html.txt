@@ -1,0 +1,1806 @@
+<!DOCTYPE html><html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="IE=8" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv='pragma'  content='no-cache'>
+<title>Real-Time Settlement Point Prices Display</title>
+<link rel='stylesheet' type='text/css' href='/content/styles/cdr_reports.css' />
+    <script>
+      setTimeout("window.location.reload(true);",300000);
+    </script>
+
+<script>
+function open_window(url) {
+  window.open(url,"help",'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=yes,resizable=0,width=750,height=825');
+};
+</script>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-460876-10', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+</head>
+<body class='bodyStyle'>
+<div style="display: inline-block;">
+<div>
+<div class='header1'>Real-Time Settlement Point Prices Display</div>
+<div class='helpLink rightAlign'><a href="javascript:open_window('/help/popup/rtSppHelp')">Help?</a></div>
+<br>
+<span style="color:gray;font-size:80%;font-style:italic;font-weight:normal">SPP values <b><u>include</u></b> the 15 Minute Online Reserve Price Adders and the Real-Time Online Reliability Deployment Price Adders.</span>
+</div>
+<br>
+<div class="header2">
+<form style="margin:0">
+Operating Day:
+<select name="dates" id="dates" onChange="switchPageDate(this.form);">
+<option value="history">History</option>
+<option value="history">History</option>
+<option value="history">History</option>
+<option value="history">History</option>
+<option value="history">History</option>
+<option value="today">Today</option></select></form></div>
+<br>
+<input type="hidden" id="currentDate" value="09/12/2018" />
+<div class="schedTime rightAlign">
+Last Updated: Sep 13, 2018 19:17
+</div>
+<div id="yesterday">
+<table class='tableStyle'>
+	<tr>
+	<th class='headerValueClass'>Oper Day</th>
+	<th class='headerValueClass'>Interval Ending</th>
+	<th class='headerValueClass'>HB_BUSAVG</th>
+	<th class='headerValueClass'>HB_HOUSTON</th>
+	<th class='headerValueClass'>HB_HUBAVG</th>
+	<th class='headerValueClass'>HB_NORTH</th>
+	<th class='headerValueClass'>HB_SOUTH</th>
+	<th class='headerValueClass'>HB_WEST</th>
+	<th class='headerValueClass'>LZ_AEN</th>
+	<th class='headerValueClass'>LZ_CPS</th>
+	<th class='headerValueClass'>LZ_HOUSTON</th>
+	<th class='headerValueClass'>LZ_LCRA</th>
+	<th class='headerValueClass'>LZ_NORTH</th>
+	<th class='headerValueClass'>LZ_RAYBN</th>
+	<th class='headerValueClass'>LZ_SOUTH</th>
+	<th class='headerValueClass'>LZ_WEST</th>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0015</td>
+		<td class='labelClassCenter'>18.57</td>
+		<td class='labelClassCenter'>18.57</td>
+		<td class='labelClassCenter'>18.57</td>
+		<td class='labelClassCenter'>18.57</td>
+		<td class='labelClassCenter'>18.57</td>
+		<td class='labelClassCenter'>18.57</td>
+		<td class='labelClassCenter'>18.57</td>
+		<td class='labelClassCenter'>18.57</td>
+		<td class='labelClassCenter'>18.57</td>
+		<td class='labelClassCenter'>18.57</td>
+		<td class='labelClassCenter'>18.57</td>
+		<td class='labelClassCenter'>18.57</td>
+		<td class='labelClassCenter'>18.57</td>
+		<td class='labelClassCenter'>18.57</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0030</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>18.61</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0045</td>
+		<td class='labelClassCenter'>18.49</td>
+		<td class='labelClassCenter'>18.49</td>
+		<td class='labelClassCenter'>18.49</td>
+		<td class='labelClassCenter'>18.49</td>
+		<td class='labelClassCenter'>18.49</td>
+		<td class='labelClassCenter'>18.49</td>
+		<td class='labelClassCenter'>18.49</td>
+		<td class='labelClassCenter'>18.49</td>
+		<td class='labelClassCenter'>18.49</td>
+		<td class='labelClassCenter'>18.49</td>
+		<td class='labelClassCenter'>18.49</td>
+		<td class='labelClassCenter'>18.49</td>
+		<td class='labelClassCenter'>18.49</td>
+		<td class='labelClassCenter'>18.49</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0100</td>
+		<td class='labelClassCenter'>18.12</td>
+		<td class='labelClassCenter'>18.12</td>
+		<td class='labelClassCenter'>18.12</td>
+		<td class='labelClassCenter'>18.12</td>
+		<td class='labelClassCenter'>18.12</td>
+		<td class='labelClassCenter'>18.12</td>
+		<td class='labelClassCenter'>18.12</td>
+		<td class='labelClassCenter'>18.12</td>
+		<td class='labelClassCenter'>18.12</td>
+		<td class='labelClassCenter'>18.12</td>
+		<td class='labelClassCenter'>18.12</td>
+		<td class='labelClassCenter'>18.12</td>
+		<td class='labelClassCenter'>18.12</td>
+		<td class='labelClassCenter'>18.12</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0115</td>
+		<td class='labelClassCenter'>17.89</td>
+		<td class='labelClassCenter'>17.89</td>
+		<td class='labelClassCenter'>17.89</td>
+		<td class='labelClassCenter'>17.89</td>
+		<td class='labelClassCenter'>17.89</td>
+		<td class='labelClassCenter'>17.89</td>
+		<td class='labelClassCenter'>17.89</td>
+		<td class='labelClassCenter'>17.89</td>
+		<td class='labelClassCenter'>17.89</td>
+		<td class='labelClassCenter'>17.89</td>
+		<td class='labelClassCenter'>17.89</td>
+		<td class='labelClassCenter'>17.89</td>
+		<td class='labelClassCenter'>17.89</td>
+		<td class='labelClassCenter'>17.89</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0130</td>
+		<td class='labelClassCenter'>17.63</td>
+		<td class='labelClassCenter'>17.63</td>
+		<td class='labelClassCenter'>17.63</td>
+		<td class='labelClassCenter'>17.63</td>
+		<td class='labelClassCenter'>17.63</td>
+		<td class='labelClassCenter'>17.63</td>
+		<td class='labelClassCenter'>17.63</td>
+		<td class='labelClassCenter'>17.63</td>
+		<td class='labelClassCenter'>17.63</td>
+		<td class='labelClassCenter'>17.63</td>
+		<td class='labelClassCenter'>17.63</td>
+		<td class='labelClassCenter'>17.63</td>
+		<td class='labelClassCenter'>17.63</td>
+		<td class='labelClassCenter'>17.63</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0145</td>
+		<td class='labelClassCenter'>17.42</td>
+		<td class='labelClassCenter'>17.42</td>
+		<td class='labelClassCenter'>17.42</td>
+		<td class='labelClassCenter'>17.42</td>
+		<td class='labelClassCenter'>17.42</td>
+		<td class='labelClassCenter'>17.42</td>
+		<td class='labelClassCenter'>17.42</td>
+		<td class='labelClassCenter'>17.42</td>
+		<td class='labelClassCenter'>17.42</td>
+		<td class='labelClassCenter'>17.42</td>
+		<td class='labelClassCenter'>17.42</td>
+		<td class='labelClassCenter'>17.42</td>
+		<td class='labelClassCenter'>17.42</td>
+		<td class='labelClassCenter'>17.42</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0200</td>
+		<td class='labelClassCenter'>17.34</td>
+		<td class='labelClassCenter'>17.34</td>
+		<td class='labelClassCenter'>17.34</td>
+		<td class='labelClassCenter'>17.34</td>
+		<td class='labelClassCenter'>17.34</td>
+		<td class='labelClassCenter'>17.34</td>
+		<td class='labelClassCenter'>17.34</td>
+		<td class='labelClassCenter'>17.34</td>
+		<td class='labelClassCenter'>17.34</td>
+		<td class='labelClassCenter'>17.34</td>
+		<td class='labelClassCenter'>17.34</td>
+		<td class='labelClassCenter'>17.34</td>
+		<td class='labelClassCenter'>17.34</td>
+		<td class='labelClassCenter'>17.34</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0215</td>
+		<td class='labelClassCenter'>17.17</td>
+		<td class='labelClassCenter'>17.17</td>
+		<td class='labelClassCenter'>17.17</td>
+		<td class='labelClassCenter'>17.17</td>
+		<td class='labelClassCenter'>17.17</td>
+		<td class='labelClassCenter'>17.17</td>
+		<td class='labelClassCenter'>17.17</td>
+		<td class='labelClassCenter'>17.17</td>
+		<td class='labelClassCenter'>17.17</td>
+		<td class='labelClassCenter'>17.17</td>
+		<td class='labelClassCenter'>17.17</td>
+		<td class='labelClassCenter'>17.17</td>
+		<td class='labelClassCenter'>17.17</td>
+		<td class='labelClassCenter'>17.17</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0230</td>
+		<td class='labelClassCenter'>16.95</td>
+		<td class='labelClassCenter'>16.95</td>
+		<td class='labelClassCenter'>16.95</td>
+		<td class='labelClassCenter'>16.95</td>
+		<td class='labelClassCenter'>16.95</td>
+		<td class='labelClassCenter'>16.95</td>
+		<td class='labelClassCenter'>16.95</td>
+		<td class='labelClassCenter'>16.95</td>
+		<td class='labelClassCenter'>16.95</td>
+		<td class='labelClassCenter'>16.95</td>
+		<td class='labelClassCenter'>16.95</td>
+		<td class='labelClassCenter'>16.95</td>
+		<td class='labelClassCenter'>16.95</td>
+		<td class='labelClassCenter'>16.95</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0245</td>
+		<td class='labelClassCenter'>16.97</td>
+		<td class='labelClassCenter'>16.97</td>
+		<td class='labelClassCenter'>16.97</td>
+		<td class='labelClassCenter'>16.97</td>
+		<td class='labelClassCenter'>16.97</td>
+		<td class='labelClassCenter'>16.97</td>
+		<td class='labelClassCenter'>16.97</td>
+		<td class='labelClassCenter'>16.97</td>
+		<td class='labelClassCenter'>16.97</td>
+		<td class='labelClassCenter'>16.97</td>
+		<td class='labelClassCenter'>16.97</td>
+		<td class='labelClassCenter'>16.97</td>
+		<td class='labelClassCenter'>16.97</td>
+		<td class='labelClassCenter'>16.97</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0300</td>
+		<td class='labelClassCenter'>16.87</td>
+		<td class='labelClassCenter'>16.87</td>
+		<td class='labelClassCenter'>16.87</td>
+		<td class='labelClassCenter'>16.87</td>
+		<td class='labelClassCenter'>16.87</td>
+		<td class='labelClassCenter'>16.87</td>
+		<td class='labelClassCenter'>16.87</td>
+		<td class='labelClassCenter'>16.87</td>
+		<td class='labelClassCenter'>16.87</td>
+		<td class='labelClassCenter'>16.87</td>
+		<td class='labelClassCenter'>16.87</td>
+		<td class='labelClassCenter'>16.87</td>
+		<td class='labelClassCenter'>16.87</td>
+		<td class='labelClassCenter'>16.87</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0315</td>
+		<td class='labelClassCenter'>16.82</td>
+		<td class='labelClassCenter'>16.82</td>
+		<td class='labelClassCenter'>16.82</td>
+		<td class='labelClassCenter'>16.82</td>
+		<td class='labelClassCenter'>16.82</td>
+		<td class='labelClassCenter'>16.82</td>
+		<td class='labelClassCenter'>16.82</td>
+		<td class='labelClassCenter'>16.82</td>
+		<td class='labelClassCenter'>16.82</td>
+		<td class='labelClassCenter'>16.82</td>
+		<td class='labelClassCenter'>16.82</td>
+		<td class='labelClassCenter'>16.82</td>
+		<td class='labelClassCenter'>16.82</td>
+		<td class='labelClassCenter'>16.82</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0330</td>
+		<td class='labelClassCenter'>16.99</td>
+		<td class='labelClassCenter'>16.99</td>
+		<td class='labelClassCenter'>16.99</td>
+		<td class='labelClassCenter'>16.99</td>
+		<td class='labelClassCenter'>16.99</td>
+		<td class='labelClassCenter'>16.99</td>
+		<td class='labelClassCenter'>16.99</td>
+		<td class='labelClassCenter'>16.99</td>
+		<td class='labelClassCenter'>16.99</td>
+		<td class='labelClassCenter'>16.99</td>
+		<td class='labelClassCenter'>16.99</td>
+		<td class='labelClassCenter'>16.99</td>
+		<td class='labelClassCenter'>16.99</td>
+		<td class='labelClassCenter'>16.99</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0345</td>
+		<td class='labelClassCenter'>17.14</td>
+		<td class='labelClassCenter'>17.14</td>
+		<td class='labelClassCenter'>17.14</td>
+		<td class='labelClassCenter'>17.14</td>
+		<td class='labelClassCenter'>17.14</td>
+		<td class='labelClassCenter'>17.14</td>
+		<td class='labelClassCenter'>17.14</td>
+		<td class='labelClassCenter'>17.14</td>
+		<td class='labelClassCenter'>17.14</td>
+		<td class='labelClassCenter'>17.14</td>
+		<td class='labelClassCenter'>17.14</td>
+		<td class='labelClassCenter'>17.14</td>
+		<td class='labelClassCenter'>17.14</td>
+		<td class='labelClassCenter'>17.14</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0400</td>
+		<td class='labelClassCenter'>17.20</td>
+		<td class='labelClassCenter'>17.20</td>
+		<td class='labelClassCenter'>17.20</td>
+		<td class='labelClassCenter'>17.20</td>
+		<td class='labelClassCenter'>17.20</td>
+		<td class='labelClassCenter'>17.20</td>
+		<td class='labelClassCenter'>17.20</td>
+		<td class='labelClassCenter'>17.20</td>
+		<td class='labelClassCenter'>17.20</td>
+		<td class='labelClassCenter'>17.20</td>
+		<td class='labelClassCenter'>17.20</td>
+		<td class='labelClassCenter'>17.20</td>
+		<td class='labelClassCenter'>17.20</td>
+		<td class='labelClassCenter'>17.20</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0415</td>
+		<td class='labelClassCenter'>17.31</td>
+		<td class='labelClassCenter'>17.31</td>
+		<td class='labelClassCenter'>17.31</td>
+		<td class='labelClassCenter'>17.31</td>
+		<td class='labelClassCenter'>17.31</td>
+		<td class='labelClassCenter'>17.31</td>
+		<td class='labelClassCenter'>17.31</td>
+		<td class='labelClassCenter'>17.31</td>
+		<td class='labelClassCenter'>17.31</td>
+		<td class='labelClassCenter'>17.31</td>
+		<td class='labelClassCenter'>17.31</td>
+		<td class='labelClassCenter'>17.31</td>
+		<td class='labelClassCenter'>17.31</td>
+		<td class='labelClassCenter'>17.31</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0430</td>
+		<td class='labelClassCenter'>17.82</td>
+		<td class='labelClassCenter'>17.82</td>
+		<td class='labelClassCenter'>17.82</td>
+		<td class='labelClassCenter'>17.82</td>
+		<td class='labelClassCenter'>17.82</td>
+		<td class='labelClassCenter'>17.82</td>
+		<td class='labelClassCenter'>17.82</td>
+		<td class='labelClassCenter'>17.82</td>
+		<td class='labelClassCenter'>17.82</td>
+		<td class='labelClassCenter'>17.82</td>
+		<td class='labelClassCenter'>17.82</td>
+		<td class='labelClassCenter'>17.82</td>
+		<td class='labelClassCenter'>17.82</td>
+		<td class='labelClassCenter'>17.82</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0445</td>
+		<td class='labelClassCenter'>18.14</td>
+		<td class='labelClassCenter'>18.14</td>
+		<td class='labelClassCenter'>18.14</td>
+		<td class='labelClassCenter'>18.14</td>
+		<td class='labelClassCenter'>18.14</td>
+		<td class='labelClassCenter'>18.14</td>
+		<td class='labelClassCenter'>18.14</td>
+		<td class='labelClassCenter'>18.14</td>
+		<td class='labelClassCenter'>18.14</td>
+		<td class='labelClassCenter'>18.14</td>
+		<td class='labelClassCenter'>18.14</td>
+		<td class='labelClassCenter'>18.14</td>
+		<td class='labelClassCenter'>18.14</td>
+		<td class='labelClassCenter'>18.14</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0500</td>
+		<td class='labelClassCenter'>18.41</td>
+		<td class='labelClassCenter'>18.41</td>
+		<td class='labelClassCenter'>18.41</td>
+		<td class='labelClassCenter'>18.41</td>
+		<td class='labelClassCenter'>18.41</td>
+		<td class='labelClassCenter'>18.41</td>
+		<td class='labelClassCenter'>18.41</td>
+		<td class='labelClassCenter'>18.41</td>
+		<td class='labelClassCenter'>18.41</td>
+		<td class='labelClassCenter'>18.41</td>
+		<td class='labelClassCenter'>18.41</td>
+		<td class='labelClassCenter'>18.41</td>
+		<td class='labelClassCenter'>18.41</td>
+		<td class='labelClassCenter'>18.41</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0515</td>
+		<td class='labelClassCenter'>18.86</td>
+		<td class='labelClassCenter'>18.86</td>
+		<td class='labelClassCenter'>18.86</td>
+		<td class='labelClassCenter'>18.86</td>
+		<td class='labelClassCenter'>18.86</td>
+		<td class='labelClassCenter'>18.86</td>
+		<td class='labelClassCenter'>18.86</td>
+		<td class='labelClassCenter'>18.86</td>
+		<td class='labelClassCenter'>18.86</td>
+		<td class='labelClassCenter'>18.86</td>
+		<td class='labelClassCenter'>18.86</td>
+		<td class='labelClassCenter'>18.86</td>
+		<td class='labelClassCenter'>18.86</td>
+		<td class='labelClassCenter'>18.86</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0530</td>
+		<td class='labelClassCenter'>18.87</td>
+		<td class='labelClassCenter'>18.87</td>
+		<td class='labelClassCenter'>18.87</td>
+		<td class='labelClassCenter'>18.87</td>
+		<td class='labelClassCenter'>18.87</td>
+		<td class='labelClassCenter'>18.87</td>
+		<td class='labelClassCenter'>18.87</td>
+		<td class='labelClassCenter'>18.87</td>
+		<td class='labelClassCenter'>18.87</td>
+		<td class='labelClassCenter'>18.87</td>
+		<td class='labelClassCenter'>18.87</td>
+		<td class='labelClassCenter'>18.87</td>
+		<td class='labelClassCenter'>18.87</td>
+		<td class='labelClassCenter'>18.87</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0545</td>
+		<td class='labelClassCenter'>19.12</td>
+		<td class='labelClassCenter'>19.12</td>
+		<td class='labelClassCenter'>19.12</td>
+		<td class='labelClassCenter'>19.12</td>
+		<td class='labelClassCenter'>19.12</td>
+		<td class='labelClassCenter'>19.12</td>
+		<td class='labelClassCenter'>19.12</td>
+		<td class='labelClassCenter'>19.12</td>
+		<td class='labelClassCenter'>19.12</td>
+		<td class='labelClassCenter'>19.12</td>
+		<td class='labelClassCenter'>19.12</td>
+		<td class='labelClassCenter'>19.12</td>
+		<td class='labelClassCenter'>19.12</td>
+		<td class='labelClassCenter'>19.12</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0600</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.29</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0615</td>
+		<td class='labelClassCenter'>20.24</td>
+		<td class='labelClassCenter'>20.24</td>
+		<td class='labelClassCenter'>20.24</td>
+		<td class='labelClassCenter'>20.24</td>
+		<td class='labelClassCenter'>20.24</td>
+		<td class='labelClassCenter'>20.24</td>
+		<td class='labelClassCenter'>20.24</td>
+		<td class='labelClassCenter'>20.24</td>
+		<td class='labelClassCenter'>20.24</td>
+		<td class='labelClassCenter'>20.24</td>
+		<td class='labelClassCenter'>20.24</td>
+		<td class='labelClassCenter'>20.24</td>
+		<td class='labelClassCenter'>20.24</td>
+		<td class='labelClassCenter'>20.24</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0630</td>
+		<td class='labelClassCenter'>20.91</td>
+		<td class='labelClassCenter'>20.91</td>
+		<td class='labelClassCenter'>20.91</td>
+		<td class='labelClassCenter'>20.91</td>
+		<td class='labelClassCenter'>20.91</td>
+		<td class='labelClassCenter'>20.91</td>
+		<td class='labelClassCenter'>20.91</td>
+		<td class='labelClassCenter'>20.91</td>
+		<td class='labelClassCenter'>20.91</td>
+		<td class='labelClassCenter'>20.91</td>
+		<td class='labelClassCenter'>20.91</td>
+		<td class='labelClassCenter'>20.91</td>
+		<td class='labelClassCenter'>20.91</td>
+		<td class='labelClassCenter'>20.91</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0645</td>
+		<td class='labelClassCenter'>21.33</td>
+		<td class='labelClassCenter'>21.33</td>
+		<td class='labelClassCenter'>21.33</td>
+		<td class='labelClassCenter'>21.33</td>
+		<td class='labelClassCenter'>21.33</td>
+		<td class='labelClassCenter'>21.33</td>
+		<td class='labelClassCenter'>21.33</td>
+		<td class='labelClassCenter'>21.33</td>
+		<td class='labelClassCenter'>21.33</td>
+		<td class='labelClassCenter'>21.33</td>
+		<td class='labelClassCenter'>21.33</td>
+		<td class='labelClassCenter'>21.33</td>
+		<td class='labelClassCenter'>21.33</td>
+		<td class='labelClassCenter'>21.33</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0700</td>
+		<td class='labelClassCenter'>22.23</td>
+		<td class='labelClassCenter'>22.23</td>
+		<td class='labelClassCenter'>22.23</td>
+		<td class='labelClassCenter'>22.23</td>
+		<td class='labelClassCenter'>22.23</td>
+		<td class='labelClassCenter'>22.23</td>
+		<td class='labelClassCenter'>22.23</td>
+		<td class='labelClassCenter'>22.23</td>
+		<td class='labelClassCenter'>22.23</td>
+		<td class='labelClassCenter'>22.23</td>
+		<td class='labelClassCenter'>22.23</td>
+		<td class='labelClassCenter'>22.23</td>
+		<td class='labelClassCenter'>22.23</td>
+		<td class='labelClassCenter'>22.23</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0715</td>
+		<td class='labelClassCenter'>23.47</td>
+		<td class='labelClassCenter'>23.47</td>
+		<td class='labelClassCenter'>23.47</td>
+		<td class='labelClassCenter'>23.47</td>
+		<td class='labelClassCenter'>23.47</td>
+		<td class='labelClassCenter'>23.47</td>
+		<td class='labelClassCenter'>23.47</td>
+		<td class='labelClassCenter'>23.47</td>
+		<td class='labelClassCenter'>23.47</td>
+		<td class='labelClassCenter'>23.47</td>
+		<td class='labelClassCenter'>23.47</td>
+		<td class='labelClassCenter'>23.47</td>
+		<td class='labelClassCenter'>23.47</td>
+		<td class='labelClassCenter'>23.47</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0730</td>
+		<td class='labelClassCenter'>21.44</td>
+		<td class='labelClassCenter'>21.44</td>
+		<td class='labelClassCenter'>21.44</td>
+		<td class='labelClassCenter'>21.44</td>
+		<td class='labelClassCenter'>21.44</td>
+		<td class='labelClassCenter'>21.44</td>
+		<td class='labelClassCenter'>21.44</td>
+		<td class='labelClassCenter'>21.44</td>
+		<td class='labelClassCenter'>21.44</td>
+		<td class='labelClassCenter'>21.44</td>
+		<td class='labelClassCenter'>21.44</td>
+		<td class='labelClassCenter'>21.44</td>
+		<td class='labelClassCenter'>21.44</td>
+		<td class='labelClassCenter'>21.44</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0745</td>
+		<td class='labelClassCenter'>21.01</td>
+		<td class='labelClassCenter'>21.01</td>
+		<td class='labelClassCenter'>21.01</td>
+		<td class='labelClassCenter'>21.01</td>
+		<td class='labelClassCenter'>21.01</td>
+		<td class='labelClassCenter'>21.01</td>
+		<td class='labelClassCenter'>21.01</td>
+		<td class='labelClassCenter'>21.01</td>
+		<td class='labelClassCenter'>21.01</td>
+		<td class='labelClassCenter'>21.01</td>
+		<td class='labelClassCenter'>21.01</td>
+		<td class='labelClassCenter'>21.01</td>
+		<td class='labelClassCenter'>21.01</td>
+		<td class='labelClassCenter'>21.01</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0800</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.90</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0815</td>
+		<td class='labelClassCenter'>21.29</td>
+		<td class='labelClassCenter'>21.29</td>
+		<td class='labelClassCenter'>21.29</td>
+		<td class='labelClassCenter'>21.29</td>
+		<td class='labelClassCenter'>21.29</td>
+		<td class='labelClassCenter'>21.29</td>
+		<td class='labelClassCenter'>21.29</td>
+		<td class='labelClassCenter'>21.29</td>
+		<td class='labelClassCenter'>21.29</td>
+		<td class='labelClassCenter'>21.29</td>
+		<td class='labelClassCenter'>21.29</td>
+		<td class='labelClassCenter'>21.29</td>
+		<td class='labelClassCenter'>21.29</td>
+		<td class='labelClassCenter'>21.29</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0830</td>
+		<td class='labelClassCenter'>21.51</td>
+		<td class='labelClassCenter'>21.51</td>
+		<td class='labelClassCenter'>21.51</td>
+		<td class='labelClassCenter'>21.51</td>
+		<td class='labelClassCenter'>21.51</td>
+		<td class='labelClassCenter'>21.51</td>
+		<td class='labelClassCenter'>21.51</td>
+		<td class='labelClassCenter'>21.51</td>
+		<td class='labelClassCenter'>21.51</td>
+		<td class='labelClassCenter'>21.51</td>
+		<td class='labelClassCenter'>21.51</td>
+		<td class='labelClassCenter'>21.51</td>
+		<td class='labelClassCenter'>21.51</td>
+		<td class='labelClassCenter'>21.51</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0845</td>
+		<td class='labelClassCenter'>22.89</td>
+		<td class='labelClassCenter'>22.89</td>
+		<td class='labelClassCenter'>22.89</td>
+		<td class='labelClassCenter'>22.89</td>
+		<td class='labelClassCenter'>22.89</td>
+		<td class='labelClassCenter'>22.89</td>
+		<td class='labelClassCenter'>22.89</td>
+		<td class='labelClassCenter'>22.89</td>
+		<td class='labelClassCenter'>22.89</td>
+		<td class='labelClassCenter'>22.89</td>
+		<td class='labelClassCenter'>22.89</td>
+		<td class='labelClassCenter'>22.89</td>
+		<td class='labelClassCenter'>22.89</td>
+		<td class='labelClassCenter'>22.89</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0900</td>
+		<td class='labelClassCenter'>22.03</td>
+		<td class='labelClassCenter'>22.03</td>
+		<td class='labelClassCenter'>22.03</td>
+		<td class='labelClassCenter'>22.03</td>
+		<td class='labelClassCenter'>22.03</td>
+		<td class='labelClassCenter'>22.03</td>
+		<td class='labelClassCenter'>22.03</td>
+		<td class='labelClassCenter'>22.03</td>
+		<td class='labelClassCenter'>22.03</td>
+		<td class='labelClassCenter'>22.03</td>
+		<td class='labelClassCenter'>22.03</td>
+		<td class='labelClassCenter'>22.03</td>
+		<td class='labelClassCenter'>22.03</td>
+		<td class='labelClassCenter'>22.03</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0915</td>
+		<td class='labelClassCenter'>22.00</td>
+		<td class='labelClassCenter'>21.98</td>
+		<td class='labelClassCenter'>22.00</td>
+		<td class='labelClassCenter'>22.00</td>
+		<td class='labelClassCenter'>21.97</td>
+		<td class='labelClassCenter'>22.06</td>
+		<td class='labelClassCenter'>21.97</td>
+		<td class='labelClassCenter'>21.96</td>
+		<td class='labelClassCenter'>21.98</td>
+		<td class='labelClassCenter'>21.97</td>
+		<td class='labelClassCenter'>22.00</td>
+		<td class='labelClassCenter'>22.01</td>
+		<td class='labelClassCenter'>21.96</td>
+		<td class='labelClassCenter'>22.38</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0930</td>
+		<td class='labelClassCenter'>23.66</td>
+		<td class='labelClassCenter'>23.61</td>
+		<td class='labelClassCenter'>23.67</td>
+		<td class='labelClassCenter'>23.68</td>
+		<td class='labelClassCenter'>23.55</td>
+		<td class='labelClassCenter'>23.85</td>
+		<td class='labelClassCenter'>23.58</td>
+		<td class='labelClassCenter'>23.53</td>
+		<td class='labelClassCenter'>23.61</td>
+		<td class='labelClassCenter'>23.56</td>
+		<td class='labelClassCenter'>23.68</td>
+		<td class='labelClassCenter'>23.68</td>
+		<td class='labelClassCenter'>23.53</td>
+		<td class='labelClassCenter'>24.90</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>0945</td>
+		<td class='labelClassCenter'>22.66</td>
+		<td class='labelClassCenter'>22.61</td>
+		<td class='labelClassCenter'>22.68</td>
+		<td class='labelClassCenter'>22.68</td>
+		<td class='labelClassCenter'>22.55</td>
+		<td class='labelClassCenter'>22.86</td>
+		<td class='labelClassCenter'>22.58</td>
+		<td class='labelClassCenter'>22.53</td>
+		<td class='labelClassCenter'>22.61</td>
+		<td class='labelClassCenter'>22.56</td>
+		<td class='labelClassCenter'>22.68</td>
+		<td class='labelClassCenter'>22.69</td>
+		<td class='labelClassCenter'>22.52</td>
+		<td class='labelClassCenter'>23.96</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1000</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.12</td>
+		<td class='labelClassCenter'>21.18</td>
+		<td class='labelClassCenter'>21.18</td>
+		<td class='labelClassCenter'>21.06</td>
+		<td class='labelClassCenter'>21.36</td>
+		<td class='labelClassCenter'>21.08</td>
+		<td class='labelClassCenter'>21.03</td>
+		<td class='labelClassCenter'>21.12</td>
+		<td class='labelClassCenter'>21.07</td>
+		<td class='labelClassCenter'>21.18</td>
+		<td class='labelClassCenter'>21.19</td>
+		<td class='labelClassCenter'>21.03</td>
+		<td class='labelClassCenter'>22.44</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1015</td>
+		<td class='labelClassCenter'>20.98</td>
+		<td class='labelClassCenter'>20.93</td>
+		<td class='labelClassCenter'>20.99</td>
+		<td class='labelClassCenter'>20.99</td>
+		<td class='labelClassCenter'>20.87</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>20.90</td>
+		<td class='labelClassCenter'>20.85</td>
+		<td class='labelClassCenter'>20.93</td>
+		<td class='labelClassCenter'>20.88</td>
+		<td class='labelClassCenter'>20.99</td>
+		<td class='labelClassCenter'>21.00</td>
+		<td class='labelClassCenter'>20.85</td>
+		<td class='labelClassCenter'>22.23</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1030</td>
+		<td class='labelClassCenter'>21.35</td>
+		<td class='labelClassCenter'>21.30</td>
+		<td class='labelClassCenter'>21.37</td>
+		<td class='labelClassCenter'>21.37</td>
+		<td class='labelClassCenter'>21.25</td>
+		<td class='labelClassCenter'>21.54</td>
+		<td class='labelClassCenter'>21.27</td>
+		<td class='labelClassCenter'>21.22</td>
+		<td class='labelClassCenter'>21.30</td>
+		<td class='labelClassCenter'>21.26</td>
+		<td class='labelClassCenter'>21.37</td>
+		<td class='labelClassCenter'>21.37</td>
+		<td class='labelClassCenter'>21.22</td>
+		<td class='labelClassCenter'>22.61</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1045</td>
+		<td class='labelClassCenter'>21.47</td>
+		<td class='labelClassCenter'>21.42</td>
+		<td class='labelClassCenter'>21.49</td>
+		<td class='labelClassCenter'>21.49</td>
+		<td class='labelClassCenter'>21.37</td>
+		<td class='labelClassCenter'>21.67</td>
+		<td class='labelClassCenter'>21.39</td>
+		<td class='labelClassCenter'>21.34</td>
+		<td class='labelClassCenter'>21.42</td>
+		<td class='labelClassCenter'>21.38</td>
+		<td class='labelClassCenter'>21.49</td>
+		<td class='labelClassCenter'>21.50</td>
+		<td class='labelClassCenter'>21.34</td>
+		<td class='labelClassCenter'>22.74</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1100</td>
+		<td class='labelClassCenter'>22.30</td>
+		<td class='labelClassCenter'>22.25</td>
+		<td class='labelClassCenter'>22.31</td>
+		<td class='labelClassCenter'>22.31</td>
+		<td class='labelClassCenter'>22.19</td>
+		<td class='labelClassCenter'>22.50</td>
+		<td class='labelClassCenter'>22.21</td>
+		<td class='labelClassCenter'>22.16</td>
+		<td class='labelClassCenter'>22.25</td>
+		<td class='labelClassCenter'>22.20</td>
+		<td class='labelClassCenter'>22.32</td>
+		<td class='labelClassCenter'>22.32</td>
+		<td class='labelClassCenter'>22.16</td>
+		<td class='labelClassCenter'>23.61</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1115</td>
+		<td class='labelClassCenter'>23.16</td>
+		<td class='labelClassCenter'>23.11</td>
+		<td class='labelClassCenter'>23.17</td>
+		<td class='labelClassCenter'>23.18</td>
+		<td class='labelClassCenter'>23.04</td>
+		<td class='labelClassCenter'>23.37</td>
+		<td class='labelClassCenter'>23.07</td>
+		<td class='labelClassCenter'>23.02</td>
+		<td class='labelClassCenter'>23.11</td>
+		<td class='labelClassCenter'>23.06</td>
+		<td class='labelClassCenter'>23.18</td>
+		<td class='labelClassCenter'>23.19</td>
+		<td class='labelClassCenter'>23.01</td>
+		<td class='labelClassCenter'>24.51</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1130</td>
+		<td class='labelClassCenter'>23.16</td>
+		<td class='labelClassCenter'>23.11</td>
+		<td class='labelClassCenter'>23.17</td>
+		<td class='labelClassCenter'>23.17</td>
+		<td class='labelClassCenter'>23.04</td>
+		<td class='labelClassCenter'>23.37</td>
+		<td class='labelClassCenter'>23.07</td>
+		<td class='labelClassCenter'>23.02</td>
+		<td class='labelClassCenter'>23.10</td>
+		<td class='labelClassCenter'>23.05</td>
+		<td class='labelClassCenter'>23.18</td>
+		<td class='labelClassCenter'>23.18</td>
+		<td class='labelClassCenter'>23.01</td>
+		<td class='labelClassCenter'>24.51</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1145</td>
+		<td class='labelClassCenter'>25.82</td>
+		<td class='labelClassCenter'>25.76</td>
+		<td class='labelClassCenter'>25.83</td>
+		<td class='labelClassCenter'>25.83</td>
+		<td class='labelClassCenter'>25.69</td>
+		<td class='labelClassCenter'>26.04</td>
+		<td class='labelClassCenter'>25.72</td>
+		<td class='labelClassCenter'>25.66</td>
+		<td class='labelClassCenter'>25.75</td>
+		<td class='labelClassCenter'>25.70</td>
+		<td class='labelClassCenter'>25.83</td>
+		<td class='labelClassCenter'>25.84</td>
+		<td class='labelClassCenter'>25.65</td>
+		<td class='labelClassCenter'>27.30</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1200</td>
+		<td class='labelClassCenter'>27.15</td>
+		<td class='labelClassCenter'>27.08</td>
+		<td class='labelClassCenter'>27.16</td>
+		<td class='labelClassCenter'>27.16</td>
+		<td class='labelClassCenter'>27.01</td>
+		<td class='labelClassCenter'>27.39</td>
+		<td class='labelClassCenter'>27.04</td>
+		<td class='labelClassCenter'>26.98</td>
+		<td class='labelClassCenter'>27.08</td>
+		<td class='labelClassCenter'>27.02</td>
+		<td class='labelClassCenter'>27.17</td>
+		<td class='labelClassCenter'>27.17</td>
+		<td class='labelClassCenter'>26.97</td>
+		<td class='labelClassCenter'>28.76</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1215</td>
+		<td class='labelClassCenter'>26.28</td>
+		<td class='labelClassCenter'>26.22</td>
+		<td class='labelClassCenter'>26.29</td>
+		<td class='labelClassCenter'>26.29</td>
+		<td class='labelClassCenter'>26.14</td>
+		<td class='labelClassCenter'>26.51</td>
+		<td class='labelClassCenter'>26.17</td>
+		<td class='labelClassCenter'>26.11</td>
+		<td class='labelClassCenter'>26.21</td>
+		<td class='labelClassCenter'>26.16</td>
+		<td class='labelClassCenter'>26.30</td>
+		<td class='labelClassCenter'>26.30</td>
+		<td class='labelClassCenter'>26.11</td>
+		<td class='labelClassCenter'>27.84</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1230</td>
+		<td class='labelClassCenter'>29.88</td>
+		<td class='labelClassCenter'>29.81</td>
+		<td class='labelClassCenter'>29.89</td>
+		<td class='labelClassCenter'>29.90</td>
+		<td class='labelClassCenter'>29.73</td>
+		<td class='labelClassCenter'>30.14</td>
+		<td class='labelClassCenter'>29.76</td>
+		<td class='labelClassCenter'>29.69</td>
+		<td class='labelClassCenter'>29.81</td>
+		<td class='labelClassCenter'>29.74</td>
+		<td class='labelClassCenter'>29.90</td>
+		<td class='labelClassCenter'>29.91</td>
+		<td class='labelClassCenter'>29.69</td>
+		<td class='labelClassCenter'>31.63</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1245</td>
+		<td class='labelClassCenter'>30.78</td>
+		<td class='labelClassCenter'>30.71</td>
+		<td class='labelClassCenter'>30.80</td>
+		<td class='labelClassCenter'>30.80</td>
+		<td class='labelClassCenter'>30.63</td>
+		<td class='labelClassCenter'>31.05</td>
+		<td class='labelClassCenter'>30.66</td>
+		<td class='labelClassCenter'>30.59</td>
+		<td class='labelClassCenter'>30.71</td>
+		<td class='labelClassCenter'>30.64</td>
+		<td class='labelClassCenter'>30.80</td>
+		<td class='labelClassCenter'>30.81</td>
+		<td class='labelClassCenter'>30.59</td>
+		<td class='labelClassCenter'>32.60</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1300</td>
+		<td class='labelClassCenter'>42.57</td>
+		<td class='labelClassCenter'>42.48</td>
+		<td class='labelClassCenter'>42.59</td>
+		<td class='labelClassCenter'>42.60</td>
+		<td class='labelClassCenter'>42.36</td>
+		<td class='labelClassCenter'>42.93</td>
+		<td class='labelClassCenter'>42.41</td>
+		<td class='labelClassCenter'>42.32</td>
+		<td class='labelClassCenter'>42.47</td>
+		<td class='labelClassCenter'>42.39</td>
+		<td class='labelClassCenter'>42.60</td>
+		<td class='labelClassCenter'>42.61</td>
+		<td class='labelClassCenter'>42.31</td>
+		<td class='labelClassCenter'>45.00</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1315</td>
+		<td class='labelClassCenter'>31.11</td>
+		<td class='labelClassCenter'>31.04</td>
+		<td class='labelClassCenter'>31.13</td>
+		<td class='labelClassCenter'>31.13</td>
+		<td class='labelClassCenter'>30.96</td>
+		<td class='labelClassCenter'>31.39</td>
+		<td class='labelClassCenter'>30.99</td>
+		<td class='labelClassCenter'>30.92</td>
+		<td class='labelClassCenter'>31.04</td>
+		<td class='labelClassCenter'>30.97</td>
+		<td class='labelClassCenter'>31.14</td>
+		<td class='labelClassCenter'>31.14</td>
+		<td class='labelClassCenter'>30.92</td>
+		<td class='labelClassCenter'>32.93</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1330</td>
+		<td class='labelClassCenter'>36.03</td>
+		<td class='labelClassCenter'>35.95</td>
+		<td class='labelClassCenter'>36.05</td>
+		<td class='labelClassCenter'>36.06</td>
+		<td class='labelClassCenter'>35.86</td>
+		<td class='labelClassCenter'>36.35</td>
+		<td class='labelClassCenter'>35.90</td>
+		<td class='labelClassCenter'>35.82</td>
+		<td class='labelClassCenter'>35.95</td>
+		<td class='labelClassCenter'>35.88</td>
+		<td class='labelClassCenter'>36.06</td>
+		<td class='labelClassCenter'>36.07</td>
+		<td class='labelClassCenter'>35.81</td>
+		<td class='labelClassCenter'>38.08</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1345</td>
+		<td class='labelClassCenter'>38.88</td>
+		<td class='labelClassCenter'>38.79</td>
+		<td class='labelClassCenter'>38.90</td>
+		<td class='labelClassCenter'>38.90</td>
+		<td class='labelClassCenter'>38.69</td>
+		<td class='labelClassCenter'>39.21</td>
+		<td class='labelClassCenter'>38.73</td>
+		<td class='labelClassCenter'>38.65</td>
+		<td class='labelClassCenter'>38.79</td>
+		<td class='labelClassCenter'>38.71</td>
+		<td class='labelClassCenter'>38.91</td>
+		<td class='labelClassCenter'>38.92</td>
+		<td class='labelClassCenter'>38.64</td>
+		<td class='labelClassCenter'>41.07</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1400</td>
+		<td class='labelClassCenter'>41.09</td>
+		<td class='labelClassCenter'>41.00</td>
+		<td class='labelClassCenter'>41.11</td>
+		<td class='labelClassCenter'>41.11</td>
+		<td class='labelClassCenter'>40.89</td>
+		<td class='labelClassCenter'>41.44</td>
+		<td class='labelClassCenter'>40.94</td>
+		<td class='labelClassCenter'>40.85</td>
+		<td class='labelClassCenter'>41.00</td>
+		<td class='labelClassCenter'>40.91</td>
+		<td class='labelClassCenter'>41.12</td>
+		<td class='labelClassCenter'>41.13</td>
+		<td class='labelClassCenter'>40.84</td>
+		<td class='labelClassCenter'>43.38</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1415</td>
+		<td class='labelClassCenter'>50.50</td>
+		<td class='labelClassCenter'>50.39</td>
+		<td class='labelClassCenter'>50.53</td>
+		<td class='labelClassCenter'>50.53</td>
+		<td class='labelClassCenter'>50.26</td>
+		<td class='labelClassCenter'>50.92</td>
+		<td class='labelClassCenter'>50.32</td>
+		<td class='labelClassCenter'>50.21</td>
+		<td class='labelClassCenter'>50.39</td>
+		<td class='labelClassCenter'>50.29</td>
+		<td class='labelClassCenter'>50.53</td>
+		<td class='labelClassCenter'>50.55</td>
+		<td class='labelClassCenter'>50.20</td>
+		<td class='labelClassCenter'>53.25</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1430</td>
+		<td class='labelClassCenter'>69.76</td>
+		<td class='labelClassCenter'>69.62</td>
+		<td class='labelClassCenter'>69.80</td>
+		<td class='labelClassCenter'>69.80</td>
+		<td class='labelClassCenter'>69.45</td>
+		<td class='labelClassCenter'>70.32</td>
+		<td class='labelClassCenter'>69.52</td>
+		<td class='labelClassCenter'>69.38</td>
+		<td class='labelClassCenter'>69.62</td>
+		<td class='labelClassCenter'>69.48</td>
+		<td class='labelClassCenter'>69.81</td>
+		<td class='labelClassCenter'>69.83</td>
+		<td class='labelClassCenter'>69.37</td>
+		<td class='labelClassCenter'>73.38</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1445</td>
+		<td class='labelClassCenter'>64.04</td>
+		<td class='labelClassCenter'>63.91</td>
+		<td class='labelClassCenter'>64.07</td>
+		<td class='labelClassCenter'>64.07</td>
+		<td class='labelClassCenter'>63.76</td>
+		<td class='labelClassCenter'>64.53</td>
+		<td class='labelClassCenter'>63.82</td>
+		<td class='labelClassCenter'>63.69</td>
+		<td class='labelClassCenter'>63.90</td>
+		<td class='labelClassCenter'>63.78</td>
+		<td class='labelClassCenter'>64.08</td>
+		<td class='labelClassCenter'>64.09</td>
+		<td class='labelClassCenter'>63.68</td>
+		<td class='labelClassCenter'>67.26</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1500</td>
+		<td class='labelClassCenter'>48.23</td>
+		<td class='labelClassCenter'>48.13</td>
+		<td class='labelClassCenter'>48.25</td>
+		<td class='labelClassCenter'>48.26</td>
+		<td class='labelClassCenter'>48.01</td>
+		<td class='labelClassCenter'>48.62</td>
+		<td class='labelClassCenter'>48.06</td>
+		<td class='labelClassCenter'>47.96</td>
+		<td class='labelClassCenter'>48.12</td>
+		<td class='labelClassCenter'>48.03</td>
+		<td class='labelClassCenter'>48.26</td>
+		<td class='labelClassCenter'>48.27</td>
+		<td class='labelClassCenter'>47.95</td>
+		<td class='labelClassCenter'>50.79</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1515</td>
+		<td class='labelClassCenter'>52.37</td>
+		<td class='labelClassCenter'>52.27</td>
+		<td class='labelClassCenter'>52.40</td>
+		<td class='labelClassCenter'>52.41</td>
+		<td class='labelClassCenter'>52.14</td>
+		<td class='labelClassCenter'>52.80</td>
+		<td class='labelClassCenter'>52.19</td>
+		<td class='labelClassCenter'>52.08</td>
+		<td class='labelClassCenter'>52.26</td>
+		<td class='labelClassCenter'>52.16</td>
+		<td class='labelClassCenter'>52.41</td>
+		<td class='labelClassCenter'>52.42</td>
+		<td class='labelClassCenter'>52.07</td>
+		<td class='labelClassCenter'>55.12</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1530</td>
+		<td class='labelClassCenter'>57.65</td>
+		<td class='labelClassCenter'>57.54</td>
+		<td class='labelClassCenter'>57.68</td>
+		<td class='labelClassCenter'>57.69</td>
+		<td class='labelClassCenter'>57.40</td>
+		<td class='labelClassCenter'>58.11</td>
+		<td class='labelClassCenter'>57.46</td>
+		<td class='labelClassCenter'>57.34</td>
+		<td class='labelClassCenter'>57.53</td>
+		<td class='labelClassCenter'>57.42</td>
+		<td class='labelClassCenter'>57.69</td>
+		<td class='labelClassCenter'>57.71</td>
+		<td class='labelClassCenter'>57.33</td>
+		<td class='labelClassCenter'>60.59</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1545</td>
+		<td class='labelClassCenter'>99.08</td>
+		<td class='labelClassCenter'>98.89</td>
+		<td class='labelClassCenter'>99.12</td>
+		<td class='labelClassCenter'>99.13</td>
+		<td class='labelClassCenter'>98.67</td>
+		<td class='labelClassCenter'>99.80</td>
+		<td class='labelClassCenter'>98.76</td>
+		<td class='labelClassCenter'>98.58</td>
+		<td class='labelClassCenter'>98.88</td>
+		<td class='labelClassCenter'>98.71</td>
+		<td class='labelClassCenter'>99.14</td>
+		<td class='labelClassCenter'>99.16</td>
+		<td class='labelClassCenter'>98.56</td>
+		<td class='labelClassCenter'>103.73</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1600</td>
+		<td class='labelClassCenter'>147.80</td>
+		<td class='labelClassCenter'>147.53</td>
+		<td class='labelClassCenter'>147.86</td>
+		<td class='labelClassCenter'>147.87</td>
+		<td class='labelClassCenter'>147.21</td>
+		<td class='labelClassCenter'>148.84</td>
+		<td class='labelClassCenter'>147.34</td>
+		<td class='labelClassCenter'>147.08</td>
+		<td class='labelClassCenter'>147.52</td>
+		<td class='labelClassCenter'>147.27</td>
+		<td class='labelClassCenter'>147.88</td>
+		<td class='labelClassCenter'>147.92</td>
+		<td class='labelClassCenter'>147.05</td>
+		<td class='labelClassCenter'>154.53</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1615</td>
+		<td class='labelClassCenter'>73.01</td>
+		<td class='labelClassCenter'>72.88</td>
+		<td class='labelClassCenter'>73.05</td>
+		<td class='labelClassCenter'>73.05</td>
+		<td class='labelClassCenter'>72.72</td>
+		<td class='labelClassCenter'>73.53</td>
+		<td class='labelClassCenter'>72.79</td>
+		<td class='labelClassCenter'>72.66</td>
+		<td class='labelClassCenter'>72.88</td>
+		<td class='labelClassCenter'>72.75</td>
+		<td class='labelClassCenter'>73.06</td>
+		<td class='labelClassCenter'>73.07</td>
+		<td class='labelClassCenter'>72.64</td>
+		<td class='labelClassCenter'>76.36</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1630</td>
+		<td class='labelClassCenter'>88.35</td>
+		<td class='labelClassCenter'>88.19</td>
+		<td class='labelClassCenter'>88.39</td>
+		<td class='labelClassCenter'>88.39</td>
+		<td class='labelClassCenter'>88.01</td>
+		<td class='labelClassCenter'>88.95</td>
+		<td class='labelClassCenter'>88.08</td>
+		<td class='labelClassCenter'>87.93</td>
+		<td class='labelClassCenter'>88.19</td>
+		<td class='labelClassCenter'>88.04</td>
+		<td class='labelClassCenter'>88.40</td>
+		<td class='labelClassCenter'>88.42</td>
+		<td class='labelClassCenter'>87.92</td>
+		<td class='labelClassCenter'>92.26</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1645</td>
+		<td class='labelClassCenter'>106.14</td>
+		<td class='labelClassCenter'>105.97</td>
+		<td class='labelClassCenter'>106.18</td>
+		<td class='labelClassCenter'>106.19</td>
+		<td class='labelClassCenter'>105.77</td>
+		<td class='labelClassCenter'>106.80</td>
+		<td class='labelClassCenter'>105.85</td>
+		<td class='labelClassCenter'>105.68</td>
+		<td class='labelClassCenter'>105.97</td>
+		<td class='labelClassCenter'>105.81</td>
+		<td class='labelClassCenter'>106.20</td>
+		<td class='labelClassCenter'>106.22</td>
+		<td class='labelClassCenter'>105.68</td>
+		<td class='labelClassCenter'>110.41</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1700</td>
+		<td class='labelClassCenter'>84.98</td>
+		<td class='labelClassCenter'>84.83</td>
+		<td class='labelClassCenter'>85.01</td>
+		<td class='labelClassCenter'>85.02</td>
+		<td class='labelClassCenter'>84.66</td>
+		<td class='labelClassCenter'>85.55</td>
+		<td class='labelClassCenter'>84.72</td>
+		<td class='labelClassCenter'>84.58</td>
+		<td class='labelClassCenter'>84.83</td>
+		<td class='labelClassCenter'>84.69</td>
+		<td class='labelClassCenter'>85.02</td>
+		<td class='labelClassCenter'>85.04</td>
+		<td class='labelClassCenter'>84.57</td>
+		<td class='labelClassCenter'>88.70</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1715</td>
+		<td class='labelClassCenter'>55.44</td>
+		<td class='labelClassCenter'>55.34</td>
+		<td class='labelClassCenter'>55.47</td>
+		<td class='labelClassCenter'>55.47</td>
+		<td class='labelClassCenter'>55.21</td>
+		<td class='labelClassCenter'>55.86</td>
+		<td class='labelClassCenter'>55.26</td>
+		<td class='labelClassCenter'>55.16</td>
+		<td class='labelClassCenter'>55.33</td>
+		<td class='labelClassCenter'>55.23</td>
+		<td class='labelClassCenter'>55.48</td>
+		<td class='labelClassCenter'>55.49</td>
+		<td class='labelClassCenter'>55.15</td>
+		<td class='labelClassCenter'>58.17</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1730</td>
+		<td class='labelClassCenter'>146.59</td>
+		<td class='labelClassCenter'>146.31</td>
+		<td class='labelClassCenter'>146.66</td>
+		<td class='labelClassCenter'>146.68</td>
+		<td class='labelClassCenter'>145.97</td>
+		<td class='labelClassCenter'>147.70</td>
+		<td class='labelClassCenter'>146.11</td>
+		<td class='labelClassCenter'>145.83</td>
+		<td class='labelClassCenter'>146.30</td>
+		<td class='labelClassCenter'>146.04</td>
+		<td class='labelClassCenter'>146.69</td>
+		<td class='labelClassCenter'>146.72</td>
+		<td class='labelClassCenter'>145.81</td>
+		<td class='labelClassCenter'>153.75</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1745</td>
+		<td class='labelClassCenter'>39.71</td>
+		<td class='labelClassCenter'>39.63</td>
+		<td class='labelClassCenter'>39.74</td>
+		<td class='labelClassCenter'>39.74</td>
+		<td class='labelClassCenter'>39.53</td>
+		<td class='labelClassCenter'>40.04</td>
+		<td class='labelClassCenter'>39.57</td>
+		<td class='labelClassCenter'>39.49</td>
+		<td class='labelClassCenter'>39.63</td>
+		<td class='labelClassCenter'>39.55</td>
+		<td class='labelClassCenter'>39.74</td>
+		<td class='labelClassCenter'>39.75</td>
+		<td class='labelClassCenter'>39.48</td>
+		<td class='labelClassCenter'>41.86</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1800</td>
+		<td class='labelClassCenter'>32.00</td>
+		<td class='labelClassCenter'>31.93</td>
+		<td class='labelClassCenter'>32.02</td>
+		<td class='labelClassCenter'>32.02</td>
+		<td class='labelClassCenter'>31.84</td>
+		<td class='labelClassCenter'>32.28</td>
+		<td class='labelClassCenter'>31.88</td>
+		<td class='labelClassCenter'>31.81</td>
+		<td class='labelClassCenter'>31.93</td>
+		<td class='labelClassCenter'>31.86</td>
+		<td class='labelClassCenter'>32.03</td>
+		<td class='labelClassCenter'>32.03</td>
+		<td class='labelClassCenter'>31.80</td>
+		<td class='labelClassCenter'>33.84</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1815</td>
+		<td class='labelClassCenter'>27.91</td>
+		<td class='labelClassCenter'>27.84</td>
+		<td class='labelClassCenter'>27.92</td>
+		<td class='labelClassCenter'>27.93</td>
+		<td class='labelClassCenter'>27.77</td>
+		<td class='labelClassCenter'>28.16</td>
+		<td class='labelClassCenter'>27.80</td>
+		<td class='labelClassCenter'>27.73</td>
+		<td class='labelClassCenter'>27.84</td>
+		<td class='labelClassCenter'>27.78</td>
+		<td class='labelClassCenter'>27.93</td>
+		<td class='labelClassCenter'>27.94</td>
+		<td class='labelClassCenter'>27.73</td>
+		<td class='labelClassCenter'>29.54</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1830</td>
+		<td class='labelClassCenter'>28.61</td>
+		<td class='labelClassCenter'>28.55</td>
+		<td class='labelClassCenter'>28.63</td>
+		<td class='labelClassCenter'>28.63</td>
+		<td class='labelClassCenter'>28.47</td>
+		<td class='labelClassCenter'>28.87</td>
+		<td class='labelClassCenter'>28.50</td>
+		<td class='labelClassCenter'>28.44</td>
+		<td class='labelClassCenter'>28.55</td>
+		<td class='labelClassCenter'>28.49</td>
+		<td class='labelClassCenter'>28.64</td>
+		<td class='labelClassCenter'>28.64</td>
+		<td class='labelClassCenter'>28.43</td>
+		<td class='labelClassCenter'>30.26</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1845</td>
+		<td class='labelClassCenter'>28.82</td>
+		<td class='labelClassCenter'>28.76</td>
+		<td class='labelClassCenter'>28.84</td>
+		<td class='labelClassCenter'>28.84</td>
+		<td class='labelClassCenter'>28.68</td>
+		<td class='labelClassCenter'>29.08</td>
+		<td class='labelClassCenter'>28.71</td>
+		<td class='labelClassCenter'>28.65</td>
+		<td class='labelClassCenter'>28.76</td>
+		<td class='labelClassCenter'>28.69</td>
+		<td class='labelClassCenter'>28.84</td>
+		<td class='labelClassCenter'>28.85</td>
+		<td class='labelClassCenter'>28.64</td>
+		<td class='labelClassCenter'>30.48</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1900</td>
+		<td class='labelClassCenter'>27.74</td>
+		<td class='labelClassCenter'>27.71</td>
+		<td class='labelClassCenter'>27.74</td>
+		<td class='labelClassCenter'>27.74</td>
+		<td class='labelClassCenter'>27.69</td>
+		<td class='labelClassCenter'>27.82</td>
+		<td class='labelClassCenter'>27.70</td>
+		<td class='labelClassCenter'>27.68</td>
+		<td class='labelClassCenter'>27.71</td>
+		<td class='labelClassCenter'>27.69</td>
+		<td class='labelClassCenter'>27.74</td>
+		<td class='labelClassCenter'>27.75</td>
+		<td class='labelClassCenter'>27.67</td>
+		<td class='labelClassCenter'>28.31</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1915</td>
+		<td class='labelClassCenter'>39.68</td>
+		<td class='labelClassCenter'>39.69</td>
+		<td class='labelClassCenter'>39.70</td>
+		<td class='labelClassCenter'>39.64</td>
+		<td class='labelClassCenter'>39.72</td>
+		<td class='labelClassCenter'>39.77</td>
+		<td class='labelClassCenter'>39.72</td>
+		<td class='labelClassCenter'>39.73</td>
+		<td class='labelClassCenter'>39.69</td>
+		<td class='labelClassCenter'>39.72</td>
+		<td class='labelClassCenter'>39.64</td>
+		<td class='labelClassCenter'>39.62</td>
+		<td class='labelClassCenter'>39.72</td>
+		<td class='labelClassCenter'>39.87</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1930</td>
+		<td class='labelClassCenter'>43.76</td>
+		<td class='labelClassCenter'>43.76</td>
+		<td class='labelClassCenter'>43.76</td>
+		<td class='labelClassCenter'>43.76</td>
+		<td class='labelClassCenter'>43.76</td>
+		<td class='labelClassCenter'>43.76</td>
+		<td class='labelClassCenter'>43.76</td>
+		<td class='labelClassCenter'>43.76</td>
+		<td class='labelClassCenter'>43.76</td>
+		<td class='labelClassCenter'>43.76</td>
+		<td class='labelClassCenter'>43.76</td>
+		<td class='labelClassCenter'>43.76</td>
+		<td class='labelClassCenter'>43.76</td>
+		<td class='labelClassCenter'>43.76</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>1945</td>
+		<td class='labelClassCenter'>36.40</td>
+		<td class='labelClassCenter'>36.40</td>
+		<td class='labelClassCenter'>36.40</td>
+		<td class='labelClassCenter'>36.40</td>
+		<td class='labelClassCenter'>36.40</td>
+		<td class='labelClassCenter'>36.40</td>
+		<td class='labelClassCenter'>36.40</td>
+		<td class='labelClassCenter'>36.40</td>
+		<td class='labelClassCenter'>36.40</td>
+		<td class='labelClassCenter'>36.40</td>
+		<td class='labelClassCenter'>36.40</td>
+		<td class='labelClassCenter'>36.40</td>
+		<td class='labelClassCenter'>36.40</td>
+		<td class='labelClassCenter'>36.40</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2000</td>
+		<td class='labelClassCenter'>66.41</td>
+		<td class='labelClassCenter'>66.41</td>
+		<td class='labelClassCenter'>66.41</td>
+		<td class='labelClassCenter'>66.41</td>
+		<td class='labelClassCenter'>66.41</td>
+		<td class='labelClassCenter'>66.41</td>
+		<td class='labelClassCenter'>66.41</td>
+		<td class='labelClassCenter'>66.41</td>
+		<td class='labelClassCenter'>66.41</td>
+		<td class='labelClassCenter'>66.41</td>
+		<td class='labelClassCenter'>66.41</td>
+		<td class='labelClassCenter'>66.41</td>
+		<td class='labelClassCenter'>66.41</td>
+		<td class='labelClassCenter'>66.41</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2015</td>
+		<td class='labelClassCenter'>42.47</td>
+		<td class='labelClassCenter'>42.62</td>
+		<td class='labelClassCenter'>42.93</td>
+		<td class='labelClassCenter'>41.74</td>
+		<td class='labelClassCenter'>43.22</td>
+		<td class='labelClassCenter'>44.14</td>
+		<td class='labelClassCenter'>43.14</td>
+		<td class='labelClassCenter'>43.41</td>
+		<td class='labelClassCenter'>42.64</td>
+		<td class='labelClassCenter'>43.24</td>
+		<td class='labelClassCenter'>41.69</td>
+		<td class='labelClassCenter'>41.48</td>
+		<td class='labelClassCenter'>43.28</td>
+		<td class='labelClassCenter'>45.79</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2030</td>
+		<td class='labelClassCenter'>33.50</td>
+		<td class='labelClassCenter'>33.59</td>
+		<td class='labelClassCenter'>33.77</td>
+		<td class='labelClassCenter'>33.08</td>
+		<td class='labelClassCenter'>33.94</td>
+		<td class='labelClassCenter'>34.47</td>
+		<td class='labelClassCenter'>33.89</td>
+		<td class='labelClassCenter'>34.05</td>
+		<td class='labelClassCenter'>33.60</td>
+		<td class='labelClassCenter'>33.95</td>
+		<td class='labelClassCenter'>33.05</td>
+		<td class='labelClassCenter'>32.93</td>
+		<td class='labelClassCenter'>33.97</td>
+		<td class='labelClassCenter'>35.43</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2045</td>
+		<td class='labelClassCenter'>27.79</td>
+		<td class='labelClassCenter'>27.79</td>
+		<td class='labelClassCenter'>27.80</td>
+		<td class='labelClassCenter'>27.76</td>
+		<td class='labelClassCenter'>27.81</td>
+		<td class='labelClassCenter'>27.85</td>
+		<td class='labelClassCenter'>27.81</td>
+		<td class='labelClassCenter'>27.82</td>
+		<td class='labelClassCenter'>27.79</td>
+		<td class='labelClassCenter'>27.82</td>
+		<td class='labelClassCenter'>27.76</td>
+		<td class='labelClassCenter'>27.75</td>
+		<td class='labelClassCenter'>27.82</td>
+		<td class='labelClassCenter'>27.91</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2100</td>
+		<td class='labelClassCenter'>27.90</td>
+		<td class='labelClassCenter'>28.02</td>
+		<td class='labelClassCenter'>28.25</td>
+		<td class='labelClassCenter'>27.33</td>
+		<td class='labelClassCenter'>28.48</td>
+		<td class='labelClassCenter'>29.20</td>
+		<td class='labelClassCenter'>28.42</td>
+		<td class='labelClassCenter'>28.63</td>
+		<td class='labelClassCenter'>28.03</td>
+		<td class='labelClassCenter'>28.49</td>
+		<td class='labelClassCenter'>27.29</td>
+		<td class='labelClassCenter'>27.12</td>
+		<td class='labelClassCenter'>28.52</td>
+		<td class='labelClassCenter'>30.47</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2115</td>
+		<td class='labelClassCenter'>30.14</td>
+		<td class='labelClassCenter'>30.24</td>
+		<td class='labelClassCenter'>30.44</td>
+		<td class='labelClassCenter'>29.66</td>
+		<td class='labelClassCenter'>30.63</td>
+		<td class='labelClassCenter'>31.24</td>
+		<td class='labelClassCenter'>30.58</td>
+		<td class='labelClassCenter'>30.76</td>
+		<td class='labelClassCenter'>30.25</td>
+		<td class='labelClassCenter'>30.65</td>
+		<td class='labelClassCenter'>29.63</td>
+		<td class='labelClassCenter'>29.49</td>
+		<td class='labelClassCenter'>30.67</td>
+		<td class='labelClassCenter'>32.32</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2130</td>
+		<td class='labelClassCenter'>25.87</td>
+		<td class='labelClassCenter'>25.87</td>
+		<td class='labelClassCenter'>25.87</td>
+		<td class='labelClassCenter'>25.87</td>
+		<td class='labelClassCenter'>25.87</td>
+		<td class='labelClassCenter'>25.87</td>
+		<td class='labelClassCenter'>25.87</td>
+		<td class='labelClassCenter'>25.87</td>
+		<td class='labelClassCenter'>25.87</td>
+		<td class='labelClassCenter'>25.87</td>
+		<td class='labelClassCenter'>25.87</td>
+		<td class='labelClassCenter'>25.87</td>
+		<td class='labelClassCenter'>25.87</td>
+		<td class='labelClassCenter'>25.87</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2145</td>
+		<td class='labelClassCenter'>23.65</td>
+		<td class='labelClassCenter'>23.65</td>
+		<td class='labelClassCenter'>23.65</td>
+		<td class='labelClassCenter'>23.65</td>
+		<td class='labelClassCenter'>23.65</td>
+		<td class='labelClassCenter'>23.65</td>
+		<td class='labelClassCenter'>23.65</td>
+		<td class='labelClassCenter'>23.65</td>
+		<td class='labelClassCenter'>23.65</td>
+		<td class='labelClassCenter'>23.65</td>
+		<td class='labelClassCenter'>23.65</td>
+		<td class='labelClassCenter'>23.65</td>
+		<td class='labelClassCenter'>23.65</td>
+		<td class='labelClassCenter'>23.65</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2200</td>
+		<td class='labelClassCenter'>22.02</td>
+		<td class='labelClassCenter'>22.02</td>
+		<td class='labelClassCenter'>22.02</td>
+		<td class='labelClassCenter'>22.02</td>
+		<td class='labelClassCenter'>22.02</td>
+		<td class='labelClassCenter'>22.02</td>
+		<td class='labelClassCenter'>22.02</td>
+		<td class='labelClassCenter'>22.02</td>
+		<td class='labelClassCenter'>22.02</td>
+		<td class='labelClassCenter'>22.02</td>
+		<td class='labelClassCenter'>22.02</td>
+		<td class='labelClassCenter'>22.02</td>
+		<td class='labelClassCenter'>22.02</td>
+		<td class='labelClassCenter'>22.02</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2215</td>
+		<td class='labelClassCenter'>23.08</td>
+		<td class='labelClassCenter'>23.08</td>
+		<td class='labelClassCenter'>23.08</td>
+		<td class='labelClassCenter'>23.08</td>
+		<td class='labelClassCenter'>23.08</td>
+		<td class='labelClassCenter'>23.08</td>
+		<td class='labelClassCenter'>23.08</td>
+		<td class='labelClassCenter'>23.08</td>
+		<td class='labelClassCenter'>23.08</td>
+		<td class='labelClassCenter'>23.08</td>
+		<td class='labelClassCenter'>23.08</td>
+		<td class='labelClassCenter'>23.08</td>
+		<td class='labelClassCenter'>23.08</td>
+		<td class='labelClassCenter'>23.08</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2230</td>
+		<td class='labelClassCenter'>22.35</td>
+		<td class='labelClassCenter'>22.35</td>
+		<td class='labelClassCenter'>22.35</td>
+		<td class='labelClassCenter'>22.35</td>
+		<td class='labelClassCenter'>22.35</td>
+		<td class='labelClassCenter'>22.35</td>
+		<td class='labelClassCenter'>22.35</td>
+		<td class='labelClassCenter'>22.35</td>
+		<td class='labelClassCenter'>22.35</td>
+		<td class='labelClassCenter'>22.35</td>
+		<td class='labelClassCenter'>22.35</td>
+		<td class='labelClassCenter'>22.35</td>
+		<td class='labelClassCenter'>22.35</td>
+		<td class='labelClassCenter'>22.35</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2245</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.17</td>
+		<td class='labelClassCenter'>21.17</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2300</td>
+		<td class='labelClassCenter'>20.17</td>
+		<td class='labelClassCenter'>20.17</td>
+		<td class='labelClassCenter'>20.17</td>
+		<td class='labelClassCenter'>20.17</td>
+		<td class='labelClassCenter'>20.17</td>
+		<td class='labelClassCenter'>20.17</td>
+		<td class='labelClassCenter'>20.17</td>
+		<td class='labelClassCenter'>20.17</td>
+		<td class='labelClassCenter'>20.17</td>
+		<td class='labelClassCenter'>20.17</td>
+		<td class='labelClassCenter'>20.17</td>
+		<td class='labelClassCenter'>20.17</td>
+		<td class='labelClassCenter'>20.17</td>
+		<td class='labelClassCenter'>20.17</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2315</td>
+		<td class='labelClassCenter'>19.65</td>
+		<td class='labelClassCenter'>19.65</td>
+		<td class='labelClassCenter'>19.65</td>
+		<td class='labelClassCenter'>19.65</td>
+		<td class='labelClassCenter'>19.65</td>
+		<td class='labelClassCenter'>19.65</td>
+		<td class='labelClassCenter'>19.65</td>
+		<td class='labelClassCenter'>19.65</td>
+		<td class='labelClassCenter'>19.65</td>
+		<td class='labelClassCenter'>19.65</td>
+		<td class='labelClassCenter'>19.65</td>
+		<td class='labelClassCenter'>19.65</td>
+		<td class='labelClassCenter'>19.65</td>
+		<td class='labelClassCenter'>19.65</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2330</td>
+		<td class='labelClassCenter'>19.26</td>
+		<td class='labelClassCenter'>19.26</td>
+		<td class='labelClassCenter'>19.27</td>
+		<td class='labelClassCenter'>19.24</td>
+		<td class='labelClassCenter'>19.27</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>19.27</td>
+		<td class='labelClassCenter'>19.28</td>
+		<td class='labelClassCenter'>19.26</td>
+		<td class='labelClassCenter'>19.27</td>
+		<td class='labelClassCenter'>19.24</td>
+		<td class='labelClassCenter'>19.23</td>
+		<td class='labelClassCenter'>19.27</td>
+		<td class='labelClassCenter'>19.32</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2345</td>
+		<td class='labelClassCenter'>18.98</td>
+		<td class='labelClassCenter'>19.04</td>
+		<td class='labelClassCenter'>19.16</td>
+		<td class='labelClassCenter'>18.71</td>
+		<td class='labelClassCenter'>19.27</td>
+		<td class='labelClassCenter'>19.62</td>
+		<td class='labelClassCenter'>19.24</td>
+		<td class='labelClassCenter'>19.34</td>
+		<td class='labelClassCenter'>19.05</td>
+		<td class='labelClassCenter'>19.27</td>
+		<td class='labelClassCenter'>18.69</td>
+		<td class='labelClassCenter'>18.61</td>
+		<td class='labelClassCenter'>19.29</td>
+		<td class='labelClassCenter'>20.24</td>
+	</tr>
+	<tr>
+		<td class='labelClassCenter'>09/12/2018</td>
+		<td class='labelClassCenter'>2400</td>
+		<td class='labelClassCenter'>18.76</td>
+		<td class='labelClassCenter'>18.88</td>
+		<td class='labelClassCenter'>19.11</td>
+		<td class='labelClassCenter'>18.20</td>
+		<td class='labelClassCenter'>19.33</td>
+		<td class='labelClassCenter'>20.03</td>
+		<td class='labelClassCenter'>19.27</td>
+		<td class='labelClassCenter'>19.48</td>
+		<td class='labelClassCenter'>18.89</td>
+		<td class='labelClassCenter'>19.34</td>
+		<td class='labelClassCenter'>18.17</td>
+		<td class='labelClassCenter'>18.00</td>
+		<td class='labelClassCenter'>19.37</td>
+		<td class='labelClassCenter'>21.29</td>
+	</tr>
+</table>
+</div><script> function getFile(){var file_name = document.location.href; var end = (file_name.indexOf('?') == -1) ? file_name.length : file_name.indexOf('?'); ret=file_name.substring(file_name.lastIndexOf('/')+1, end); return ret.match(/^\d+_/) ? ret.substr(9) : ret;} var dateOption = document.getElementById("dates"); var numberOfOptions = dateOption.options.length; var optionHistoryLength = 0; for (var i=0; i < numberOfOptions; i++){if (dateOption[i].value == "history") optionHistoryLength++;} var currentDate = new Date(); var optionDate = new Date(); optionDate.setDate(optionDate.getDate() - optionHistoryLength); for (var i = 0; i < numberOfOptions; i++) {   var month = optionDate.getMonth() + 1;   var monthStr = (month < 10) ? '0' + month : month + '';   var dayOfMonth = optionDate.getDate();   var dayOfMonthStr = dayOfMonth < 10 ? '0' + dayOfMonth : dayOfMonth + '';   var dateString = monthStr + '/' + dayOfMonthStr + '/' + optionDate.getFullYear() + '';   dateOption[i].innerHTML = dateString;   dateOption[i].value = optionDate.getFullYear() + '' + monthStr + '' + dayOfMonthStr;   if (document.getElementById("currentDate").value == dateString) { dateOption[i].selected = true; }   optionDate.setDate(dayOfMonth + 1); } function switchPageDate(theForm) {   var uri= theForm.dates.options[theForm.dates.selectedIndex].value + '_' + getFile();   window.open(uri,'_self'); } </script>
+</div>
+</body>
+</html>
